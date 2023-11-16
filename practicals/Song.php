@@ -1,4 +1,7 @@
 <?php
+
+namespace songs;
+
 class Song {
     // Properties
     private $title;
@@ -47,6 +50,9 @@ class Song {
     }
 
     public function setTempo($tempo) {
+        if (!is_numeric($tempo) || is_float($tempo)) {
+            throw new \InvalidArgumentException("inputs must be numeric.");
+        }
         $this->tempo = $tempo;
     }
 }
