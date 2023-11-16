@@ -16,3 +16,15 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/veggies/{sabji}', function (string $sabji) {
+    return $sabji;
+})->whereIn('sabji', ['baigan', 'bhindi', 'aaloo', 'gobhi']);
+
+Route::get('/greeting', function () {
+    return 'Hello World';
+});
+
+Route::get('/veggies', function () {
+    return view('veggies');
+});
