@@ -25,5 +25,9 @@ class SongSeeder extends Seeder
             'title' => 'With You',
         ]);
 
+        Song::create([
+            'artist' => 'Metallica',
+            'title' => 'Nothing Else Matters',
+        ]);
     }
 }
