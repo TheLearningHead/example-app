@@ -35,8 +35,16 @@ class SongTest extends TestCase
         $this->expectException(\InvalidArgumentException::class);
         $song->setTempo(60.5);
     }
-    
-
+    public function testSongsOk(): void
+    {
+        $response = $this->get('/songs');
+        $response->assertStatus(200);
+    }
+    public function testSongsStaticOk(): void
+    {
+        $response = $this->get('/songs_static');
+        $response->assertStatus(200);
+    }
 
     // Add other test methods for your different cases
 }
