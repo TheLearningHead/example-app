@@ -5,7 +5,7 @@ namespace Tests\Unit;
 use PHPUnit\Framework\TestCase;
 
 require(__DIR__.'/../../practicals/Song.php');
-use Practicals\Song;
+use songs\Song;
 
 class SongTest extends TestCase
 {
@@ -34,6 +34,16 @@ class SongTest extends TestCase
         $song = new Song("Title", "Artist", "Genre", 120);
         $this->expectException(\InvalidArgumentException::class);
         $song->setTempo(60.5);
+    }
+    public function testSongsOk(): void
+    {
+        $response = $this->get('/songs');
+        $response->assertStatus(200);
+    }
+    public function testSongsStaticOk(): void
+    {
+        $response = $this->get('/songs_static');
+        $response->assertStatus(200);
     }
 
     // Add other test methods for your different cases
